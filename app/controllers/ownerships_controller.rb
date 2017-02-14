@@ -40,10 +40,10 @@ class OwnershipsController < ApplicationController
     # TODO 紐付けの解除。 
     # params[:type]の値にHave itボタンが押された時には「Have」,
     # Want itボタンが押された時には「Want」が設定されています。
-  if (params[:type] == "Want it")
-      current_user.want(@item)
+  if (params[:type] == "Want")
+      current_user.unwant(@item)
   else
-      current_user.have(@item)
+      current_user.unhave(@item)
   end
   
   end
