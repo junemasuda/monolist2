@@ -3,13 +3,14 @@
     <div class="item-single-main">
       <div class="image">
         <div class="img-wrap">
+           
           <% #TODO 商品イメージ %>
-          <%= image_tag(@item['mediumImageUrls'], alt: @item['itemName']) %>
+          <%= image_tag(@item.large_image, alt: @item.title) %>
         </div>
       </div>
       <div class="title">
         <% #TODO 商品タイトル %>
-        <%= @item['itemName'] %>
+        <%= @item.title %>
       </div>
       <%= render 'action' , item: @item %>
     </div>
@@ -34,8 +35,12 @@
       </div>
       <div class="text-center">
         <% #TODO 正しいリンク先に %>
-        <%= link_to('楽天詳細ページへ', '#') %>
+        <%= link_to('楽天詳細ページへ', @item.detail_page_url) %>
       </div>
     </div>
   </div>
 </div>
+
+<% content_for :head do %>
+  <%= @item.title %>
+<% end %>
