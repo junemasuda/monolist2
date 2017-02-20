@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'ranking/have'
+
+  get 'ranking/want'
+
   root 'welcome#index'
 
   get    'signup', to: 'users#new'
@@ -12,6 +16,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :ownerships, only: [:create, :destroy]
   resources :items , only: [:new , :show]
+  resources :rankings
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
